@@ -11,9 +11,9 @@ namespace Wegmeister\DatabaseStorage\Finishers;
  * The Neos project - inspiring people to share!
  */
 
-use Neos\Flow\Annotations as Flow;
-use Neos\Form\Core\Model\AbstractFinisher;
-use Neos\Form\Exception\FinisherException;
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Form\Core\Model\AbstractFinisher;
+use TYPO3\Form\Exception\FinisherException;
 
 use Wegmeister\DatabaseStorage\Domain\Model\DatabaseStorage;
 use Wegmeister\DatabaseStorage\Domain\Repository\DatabaseStorageRepository;

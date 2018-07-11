@@ -5,10 +5,10 @@ namespace Wegmeister\DatabaseStorage\Controller;
  * This file is part of the RadKultur.Wettbewerb package.
  */
 
-use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Mvc\Controller\ActionController;
-use Neos\Flow\ResourceManagement\ResourceManager;
-use Neos\Flow\ResourceManagement\PersistentResource;
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Flow\Mvc\Controller\ActionController;
+use TYPO3\Flow\Resource\ResourceManager;
+use TYPO3\Flow\Resource\Resource;
 
 use Wegmeister\DatabaseStorage\Domain\Repository\DatabaseStorageRepository;
 
@@ -98,7 +98,7 @@ class DatabaseStorageController extends ActionController
      * @param bool $redirect
      * @return void
      */
-    public function deleteAllAction(string $identifier, $redirect = false)
+    public function deleteAllAction($identifier, $redirect = false)
     {
         $count = 0;
         foreach ($this->databaseStorageRepository->findByStorageidentifier($identifier) as $entry) {
@@ -124,7 +124,7 @@ class DatabaseStorageController extends ActionController
      *
      * @return void
      */
-    public function exportAction(string $identifier, $writerType = 'Xlsx')
+    public function exportAction($identifier, $writerType = 'Xlsx')
     {
         if (!isset(self::$types[$writerType])) {
             throw new WriterException('No writer available for type ' . $writerType . '.', 1521787983);
@@ -158,7 +158,7 @@ class DatabaseStorageController extends ActionController
             $values = [];
 
             foreach ($entry->getProperties() as $value) {
-                if ($value instanceof PersistentResource) {
+                if ($value instanceof Resource) {
                     $values[] = $this->resourceManager->getPublicPersistentResourceUri($value) ?: '-';
                 } elseif (is_string($value)) {
                     $values[] = $value;

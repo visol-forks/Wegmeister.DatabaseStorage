@@ -5,7 +5,7 @@ namespace Wegmeister\DatabaseStorage\Domain\Model;
  * This file is part of the Wegmeister.DatabaseStorage package.
  */
 
-use Neos\Flow\Annotations as Flow;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,7 +51,7 @@ class DatabaseStorage
      * @param string $identifier
      * @return DatabaseStorage
      */
-    public function setStorageidentifier(string $identifier)
+    public function setStorageidentifier($identifier)
     {
         $this->storageidentifier = $identifier;
         return $this;
