@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Wegmeister.DatabaseStorage" source-language="en" datatype="plaintext">
+		<body>
+            <trans-unit id="cancel">
+                <target>Abbrechen</target>
+            </trans-unit>
+            <trans-unit id="export.button.title">
+                <target>Einträge für '{identifier}' exportieren</target>
+            </trans-unit>
+            <trans-unit id="export.title">
+                <target>Bitte Dateiart für den Export wählen</target>
+            </trans-unit>
+            <trans-unit id="export.info">
+                <target>Alle Einträge für das Formular "{identifier}" im gewünschten Format exportieren. Klick auf Dateiendung.</target>
+            </trans-unit>
+            <trans-unit id="export.filetype">
+                <target>Exportieren als</target>
+            </trans-unit>
+            <trans-unit id="delete.button.title">
+                <target>Löschen</target>
+            </trans-unit>
+            <trans-unit id="delete.title">
+                <target>Wollen Sie wirklich ALLE Einträge löschen "{identifier}"?</target>
+            </trans-unit>
+            <trans-unit id="delete.info">
+                <target>ALLE Einträge des Formulars "{identifier}" werden unwiderruflich gelöscht. Ihre Daten werden komplett aus der Datenbank gelöscht!</target>
+            </trans-unit>
+            <trans-unit id="delete.confirm">
+                <target>alle Einträge von "{identifier}" löschen!</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

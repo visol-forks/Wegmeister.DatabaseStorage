@@ -25,54 +25,61 @@
               <td title="{identifier}">{identifier}</td>
               <td class="neos-action size-sm">
                 <div class="neos-pull-right">
-                  <button class="neos-button neos-button-primary" title="Export entries of '{identifier}'" data-toggle="modal" href="#export-{identifier}">
-                    <i class="fas fa-eye icon-white"></i>
+                  <button class="neos-button neos-button-primary" title="{neos:backend.translate(id: 'export.button.title', value: 'Export', package: 'Wegmeister.DatabaseStorage')}'" data-neos-toggle="tooltip" data-toggle="modal" href="#export-{identifier}">
+                    <i class="fas fa-eye icon-white icon-eye"></i>
                   </button>
                   <div class="neos-hide" id="export-{identifier}">
                     <div class="neos-modal">
                       <div class="neos-modal-header">
                         <button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
-                        <div class="neos-header">Please select the file type for the export</div>
+                        <div class="neos-header">
+                          {neos:backend.translate(id: 'export.title', value: 'Select file type', package: 'Wegmeister.DatabaseStorage')}
+                        </div>
                         <div>
                           <div class="neos-subheader">
-                            <p>This will export all entries for identifier "{identifier}" to a file of the selected output format.</p>
+                            <p>{neos:backend.translate(id: 'export.info', value: 'Exporting all entries for this form.', arguments:{identifier:identifier}, package: 'Wegmeister.DatabaseStorage')}</p>
+                            <f:form action="export" arguments="{identifier: identifier}" class="neos-inline"><br />
+                              <p>{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')}</p>
+                              <f:form.button type="submit" name="writerType" value="Xlsx" class="neos-button" title="{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')} xlsx">XLSX</f:form.button>
+                              <f:form.button type="submit" name="writerType" value="Xls" class="neos-button" title="{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')} xls">XLS</f:form.button>
+                              <f:form.button type="submit" name="writerType" value="Ods" class="neos-button" title="{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')} ods">ODS</f:form.button>
+                              <f:form.button type="submit" name="writerType" value="Csv" class="neos-button" title="{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')} csv">CSV</f:form.button>
+                              <f:form.button type="submit" name="writerType" value="Html" class="neos-button" title="{neos:backend.translate(id: 'export.filetype', value: 'Export as', package: 'Wegmeister.DatabaseStorage')} html">HTML</f:form.button>
+                            </f:form>
                           </div>
                         </div>
                       </div>
                       <div class="neos-modal-footer">
-                        <a href="#" class="neos-button" data-dismiss="modal">{neos:backend.translate(id: 'cancel', value: 'Cancel', package: 'Neos.Neos')}</a>
-                        <f:form action="export" arguments="{identifier: identifier}" class="neos-inline">
-                          Export as:
-                          <f:form.button type="submit" name="writerType" value="Xlsx" class="neos-button neos-button-primary" title="Export as xlsx">XLSX</f:form.button>
-                          <f:form.button type="submit" name="writerType" value="Xls" class="neos-button" title="Export as xls">XLS</f:form.button>
-                          <f:form.button type="submit" name="writerType" value="Ods" class="neos-button" title="Export as ods">ODS</f:form.button>
-                          <f:form.button type="submit" name="writerType" value="Csv" class="neos-button" title="Export as csv">CSV</f:form.button>
-                          <f:form.button type="submit" name="writerType" value="Html" class="neos-button" title="Export as html">HTML</f:form.button>
-                        </f:form>
+                        <a href="#" class="neos-button" data-dismiss="modal">{neos:backend.translate(id: 'cancel', value: 'Cancel', package: 'TYPO3.Neos')}</a>
                       </div>
                     </div>
+                    <div class="neos-modal-backdrop neos-in"></div>
                   </div>
 
-                  <button class="neos-button neos-button-danger" title="{neos:backend.translate(id: 'clickToDelete', value: 'Click to delete', package: 'Neos.Neos')}" data-toggle="modal" href="#identifier-{identifier}">
-                    <i class="fas fa-trash-alt icon-white"></i>
+                  <button class="neos-button neos-button-danger" title="{neos:backend.translate(id: 'delete.button.title', value: 'Click to delete', package: 'Wegmeister.DatabaseStorage')}" data-toggle="modal" href="#identifier-{identifier}" data-neos-toggle="tooltip">
+                    <i class="fas fa-trash-alt icon-trash icon-white"></i>
                   </button>
                   <div class="neos-hide" id="identifier-{identifier}">
                     <div class="neos-modal">
                       <div class="neos-modal-header">
                         <button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
-                        <div class="neos-header">Do you really want to delete identifier "{identifier}"?</div>
+                        <div class="neos-header">
+                          {neos:backend.translate(id: 'delete.title', value: 'Shure to delete?', arguments:{identifier:identifier}, package: 'Wegmeister.DatabaseStorage')}
+                        </div>
                         <div>
                           <div class="neos-subheader">
-                            <p>This will delete all entries for identifier "{identifier}" and cannot be undone. Your data will be gone!</p>
+                            <p>
+                              {neos:backend.translate(id: 'delete.info', value: 'Deleting all! No more restoring', arguments:{identifier:identifier}, package: 'Wegmeister.DatabaseStorage')}
+                          </p>
                           </div>
                         </div>
                       </div>
                       <div class="neos-modal-footer">
-                        <a href="#" class="neos-button" data-dismiss="modal">{neos:backend.translate(id: 'cancel', value: 'Cancel', package: 'Neos.Neos')}</a>
+                        <a href="#" class="neos-button" data-dismiss="modal">{neos:backend.translate(id: 'cancel', value: 'Cancel', package: 'Wegmeister.DatabaseStorage')}</a>
                         <f:form action="deleteAll" arguments="{identifier: identifier}" class="neos-inline">
                           <f:form.hidden name="redirect" value="1" />
                           <button type="submit" class="neos-button neos-button-danger" title="Delete entries">
-                            Yes, delete all entries for identifier "{identifier}"
+                            {neos:backend.translate(id:'delete.confirm', value:'Yes, delete. I\'m shure!', arguments:{identifier:identifier}, package:'Wegmeister.DatabaseStorage')}
                           </button>
                         </f:form>
                       </div>
