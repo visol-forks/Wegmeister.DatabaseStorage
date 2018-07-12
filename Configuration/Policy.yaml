@@ -3,8 +3,7 @@ privilegeTargets:
     'Wegmeister.DatabaseStorage:Backend.DatabaseStorageViewer':
       matcher: 'method(Wegmeister\DatabaseStorage\Controller\DatabaseStorageController->(index)Action())'
     'Wegmeister.DatabaseStorage:Backend.DatabaseStorageExporter':
-      matcher: 'method(Wegmeister\DatabaseStorage\Controller\DatabaseStorageController->(export)Action())'
-
+      matcher: 'method(Wegmeister\DatabaseStorage\Controller\DatabaseStorageController->(export|deleteAll)Action())'
 
 roles:
   'Wegmeister.DatabaseStorage:DatabaseStorageViewer':
