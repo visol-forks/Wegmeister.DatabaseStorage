@@ -144,8 +144,10 @@ class DatabaseStorageController extends ActionController
         $spreadsheet->setActiveSheetIndex(0);
         $spreadsheet->getActiveSheet()->setTitle($this->settings['title']);
 
-        $titles = [];
         $columns = 0;
+        $titles = [];
+        $titles[] = 'DateTime';
+
         foreach ($entries[0]->getProperties() as $title => $value) {
             $titles[] = $title;
             $columns++;
@@ -153,9 +155,9 @@ class DatabaseStorageController extends ActionController
 
         $dataArray[] = $titles;
 
-
         foreach ($entries as $entry) {
             $values = [];
+            $values[] = $entry->getDateTime();
 
             foreach ($entry->getProperties() as $value) {
                 if ($value instanceof Resource) {
